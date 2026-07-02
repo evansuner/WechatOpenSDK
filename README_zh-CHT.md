@@ -18,7 +18,7 @@
 </details> 
 
  
-<details><summary> 2. 輸入 https://github.com/yanyin1986/WechatOpenSDK.git, 然後點擊 `Add Package`. </summary>
+<details><summary> 2. 輸入 https://github.com/evansuner/WechatOpenSDK.git, 然後點擊 `Add Package`. </summary>
 <p>
 <img width="580" alt="image" src="https://user-images.githubusercontent.com/1109143/229008672-1144a5f7-4099-4ac0-ae4a-8c75cac4eec5.png">
 </p>

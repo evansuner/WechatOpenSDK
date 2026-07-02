@@ -1,30 +1,30 @@
 name: Manual workflow
 
 on:
-  workflow_dispatch:
+    workflow_dispatch:
 
 jobs:
-  greet:
-    runs-on: macos-latest
-    steps:
-    - uses: actions/checkout@v3
-    - uses: ruby/setup-ruby@359bebbc29cbe6c87da6bc9ea3bc930432750108
-      with:
-        bundler-cache: true
-        ruby-version: '3.0'
-    - name: install pod
-      run: |
-        bundle config path vendor/bundle
-        bundle install
-    - name: Pod repo update
-      run: |
-        pod repo add-cdn source 'https://cdn.cocoapods.org/'
-        pod repo update
-    - name: ls
-      run: ls -al 
-    - name: Run
-      run: ./check_source.sh
-    - name: Create Pull Request
-      uses: peter-evans/create-pull-request@v4.2.4
-      with:
-        token: ${{ secrets.GITHUB_TOKEN }}
+    greet:
+        runs-on: macos-latest
+        steps:
+            - uses: actions/checkout@v7
+            - uses: ruby/setup-ruby@master
+              with:
+                  bundler-cache: true
+                  ruby-version: "3.4.10"
+            - name: install pod
+              run: |
+                  bundle config path vendor/bundle
+                  bundle install
+            - name: Pod repo update
+              run: |
+                  pod repo add-cdn source 'https://cdn.cocoapods.org/'
+                  pod repo update
+            - name: ls
+              run: ls -al
+            - name: Run
+              run: ./check_source.sh
+            - name: Create Pull Request
+              uses: peter-evans/create-pull-request@v8
+              with:
+                  token: ${{ secrets.GITHUB_TOKEN }}
